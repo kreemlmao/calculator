@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style>
+	* {
+	margin: 0;
+	padding: 0;
+	font-size: 30px;
+	font-family: 'Orbitron' , sans-serif ;
+}
+.calc {
+	width: 324px;
+	margin: auto;
+	background-color:#39383d;
+	padding: 20px;
+	border-radius: 8px;
+}
+.calc-display {
+	width: 100%;
+	height: 75px;
+	border: none;
+	background-color: #a2af77;
+	border-radius: 8px;
+}
+input[type=button] {
+	width: 75px;
+	height: 75px;
+	margin: 2px;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	background-color: #58595b
+}
+	</style>
+<!--JAVASCRIPT-->
+	<script>
+	function insrt(num) {
+	$('.calc-display').val($('.calc-display').val() + num);
+}
+function eql() {
+	$('.calc-display').val(eval($('.calc-display').val()));
+}
+function c() {
+	$('.calc-display').val('');
+
+}
+function del() {
+	value = $('.calc-display').val();
+	$('.calc-display').val(value.substring(0, value.length - 1));
+}
+$(document).ready(function() {
+    $(window).keydown(function(event){
+        if(event.keyCode == 13) {
+            eql();
+            event.preventDefault();
+            return false;
+        }
+    });
+});
+	</script>
+	<link rel=¨stylesheet¨ type=¨text/css¨ href="main.css">
+	<script src="main.js"></script>
+	<title>Bhavishya's Calculator</title>
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<script
+  	src="https://code.jquery.com/jquery-3.3.1.min.js"
+  	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  	crossorigin="anonymous"></script>
+	  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="calc">
+		<form name="form">
+			<input class="calc-display" autofocus>
+
+		</form>
+		<table>
+			<tr>
+				<td><input type="button" value="C" onclick="c()"></td>
+				<td><input type="button" value="/" onclick="insrt('/')"></td>
+				<td><input type="button" value="<" onclick="del()"></td>
+				<td><input type="button" value="X" onclick="insrt('*')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="7" onclick="insrt(7)"></td>
+				<td><input type="button" value="8" onclick="insrt(8)"></td>
+				<td><input type="button" value="9" onclick="insrt(9)"></td>
+				<td><input type="button" value="-" onclick="insrt('-')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="4" onclick="insrt(4)"></td>
+				<td><input type="button" value="5" onclick="insrt(5)"></td>
+				<td><input type="button" value="6" onclick="insrt(6)"></td>
+				<td><input type="button" value="+" onclick="insrt('+')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="1" onclick="insrt(1)"></td>
+				<td><input type="button" value="2" onclick="insrt(2)"></td>
+				<td><input type="button" value="3" onclick="insrt(3)"></td>
+				<td rowspan=2><input type="button" value="=" onclick="eql()"  style="height: 158px; background-color: orange"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" value="0" onclick="insrt(0)" style="width: 158px; ;"></td>
+				<td><input type="button" value="." onclick="insrt('.')"></td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
